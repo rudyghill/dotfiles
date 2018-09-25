@@ -30,5 +30,4 @@ retab " reformat all opened documents
 
 "syntax coloring
 syntax on
-"syntax on " syntax coloring
-"color molokai " monokai coloring
+"color dracula " dracula coloring
