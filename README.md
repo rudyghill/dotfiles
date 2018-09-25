@@ -1,10 +1,10 @@
-- [Preface](#org0a39e45)
-- [Intro to `stow`](#org86e421d)
-- [Features](#org27f9e43)
+- [Preface](#org9b5633e)
+- [Intro to `stow`](#orgc8ffa3a)
+- [Features](#org498dcdc)
 
 
 
-<a id="org0a39e45"></a>
+<a id="org9b5633e"></a>
 
 # Preface
 
@@ -13,7 +13,7 @@ When I first started putting my dotfiles on Github, I simply copied and pasted t
 This repository is really meant for me but I'd be honored if someone used it for their own purposes, even if just to compare, which is what I usually do. I want to thank [smalleycreative](http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/) for inspiration.
 
 
-<a id="org86e421d"></a>
+<a id="orgc8ffa3a"></a>
 
 # Intro to `stow`
 
@@ -23,15 +23,16 @@ To use my dotfiles, GNU `stow` is a "dependecy". You can move the files manually
 stow vim -t ~
 ```
 
-For noobs run:
+For more information on `stow` run:
 
 ```sh
 man stow
 ```
 
-for details
 
-
-<a id="org27f9e43"></a>
+<a id="org498dcdc"></a>
 
 # Features
+
+-   easy installation with `stow`
+-   simple Emacs package management with `stow`
