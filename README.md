@@ -1,28 +1,28 @@
-- [Introduction](#org640fe50)
-  - [Preface](#org6211a08)
-  - [Features](#orgac3f07d)
-- [Getting Started](#org8eab0c1)
-  - [Dependencies](#org4263f89)
-  - [Automatic Setup](#org6db947d)
-  - [Manual Setup](#org97f063e)
+- [Introduction](#org83c83a3)
+  - [Preface](#org3822a06)
+  - [Features](#orgd2036f8)
+- [Getting Started](#org4e058e8)
+  - [Dependencies](#org1dd3591)
+  - [Automatic Setup](#org29c1f19)
+  - [Manual Setup](#org2160568)
 
 
 
-<a id="org640fe50"></a>
+<a id="org83c83a3"></a>
 
 # Introduction
 
 
-<a id="org6211a08"></a>
+<a id="org3822a06"></a>
 
 ## Preface
 
-When I first started putting my dotfiles on Github, I simply copied and pasted the content onto the browser. I say dofiles but it was really only my `.vimrc` at first, but when I started to use more configs, things got hairy quickly. What I did was dumb so this repository is hopefully a remedy to that
+When I first started putting my dotfiles on Github, I simply copied and pasted the content onto the browser. I say dofiles but it was really only my `.vimrc` at first, but when I started to use more configs, things got hairy quickly. What I did was dumb so this repository is hopefully a remedy to that.
 
 This repository is really meant for me but I'd be honored if someone used it for their own purposes, even if just to compare, which is what I usually do. I want to thank [smalleycreative](http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/) for inspiration.
 
 
-<a id="orgac3f07d"></a>
+<a id="orgd2036f8"></a>
 
 ## Features
 
@@ -30,19 +30,19 @@ This repository is really meant for me but I'd be honored if someone used it for
 -   simple Emacs package management with `use-package`
 
 
-<a id="org8eab0c1"></a>
+<a id="org4e058e8"></a>
 
 # Getting Started
 
 
-<a id="org4263f89"></a>
+<a id="org1dd3591"></a>
 
 ## Dependencies
 
-To use my dotfiles, GNU `stow` is a "dependency".
+To use my dotfiles, GNU `stow` is a "dependency". You can choose not to use it, but it makes the process much easier.
 
 
-<a id="org6db947d"></a>
+<a id="org29c1f19"></a>
 
 ## Automatic Setup
 
@@ -53,7 +53,7 @@ To install all configs, run:
 ```
 
 
-<a id="org97f063e"></a>
+<a id="org2160568"></a>
 
 ## Manual Setup
 
