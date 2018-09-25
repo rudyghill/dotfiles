@@ -1,4 +1,6 @@
-/emacs/.emacs.d/auto-save-list/
-/emacs/.emacs.d/elpa/
-/vim/.vim/swap/
+emacs/.emacs.d/*
+!emacs/emacs.d/init.el
+
+vim/.vim/*
+
 README.org
