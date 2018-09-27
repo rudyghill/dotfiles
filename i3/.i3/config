@@ -173,7 +173,7 @@ bindsym $mod+u border none
 bindsym $mod+a focus parent
 
 # S: server terminal / sticky toggle
-bindsym $mod+s exec $term ssh -i ~/Website/rodapa/key.pem -l bitnami 52.27.173.247
+bindsym $mod+s exec bash ~/Website/rodapa/session.sh
 bindsym $mod+Shift+s sticky toggle
 
 # D: floating toggle / dunst
