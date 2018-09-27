@@ -21,9 +21,9 @@ bindsym $mod+Return exec $term
 
 exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec $term -e 'alsamixer'
-#exec --no-startup-id pulseaudio
-#exec --no-startup-id pa-applet
-#bindsym $mod+Ctrl+m exec pavucontrol
+# exec --no-startup-id pulseaudio
+# exec --no-startup-id pa-applet
+# bindsym $mod+Ctrl+m exec pavucontrol
 
 # END SOUND 
 
@@ -39,6 +39,9 @@ bindsym XF86MonBrightnessDown exec "xrandr --output eDP1 --brightness 0.5; notif
 # END DISPLAY
 
 # WORKSPACES
+
+# workspace back and forth (with/without active container)
+workspace_auto_back_and_forth yes
 
 # Workspace names
 set $ws1 1
@@ -180,7 +183,7 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+d focus mode_toggle
 bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
-# F: none / fullscreen
+# F: file browser / fullscreen
 bindsym $mod+f exec $term -n file -e $file
 bindsym $mod+Shift+f fullscreen toggle
 
@@ -205,6 +208,7 @@ bindsym $mod+l focus right
 bindsym $mod+Shift+l move right
 
 # ;: none / none
+bindsym $mod+semicolon exec $term; notify-send 'recording'
 
 # X system menu / none
 bindsym $mod+x exec bash /home/rudy/.i3/system.sh
@@ -220,6 +224,10 @@ bindsym $mod+Shift+c reload
 # V: tile vertically / tile horizontally
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+Shift+v split h;exec notify-send 'tile horizontally'
+
+# B: back workspace / move container
+bindsym $mod+b workspace back_and_forth
+bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # N: normal border / none
 bindsym $mod+n border normal
@@ -252,10 +260,6 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# workspace back and forth (with/without active container)
-workspace_auto_back_and_forth yes
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -281,8 +285,8 @@ for_window [instance="file"] move position center
 for_window [urgent=latest] focus
 
 # Set shut down, restart and locking features
-bindsym $mod+0 exec bash /home/rudy/.i3/display.sh
-bindsym $mod+Shift+0 exec bash /home/rudy/.i3/system.sh
+bindsym $mod+0 exec bash /home/rudy/.i3/system.sh
+bindsym $mod+Shift+0 exec bash /home/rudy/.i3/display.sh
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+r mode "resize"
