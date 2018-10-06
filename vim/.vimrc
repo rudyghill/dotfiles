@@ -1,5 +1,9 @@
+"Basics
+set nocompatible
+
 "Indexing
 set number " show line number on left
+set relativenumber " shows line numbers relative to current number
 set hlsearch " highlighted search
 
 "Indexing
@@ -22,6 +26,9 @@ autocmd filetype cpp nnoremap<F4> :!g++ % -std=c++11 -ggdb -o %:r <CR>
 autocmd filetype cpp nnoremap<F5> :!g++ % -std=c++11 -ggdb -o %:r && ./%:r
 autocmd filetype cpp nnoremap<F10> :!g++ % -ggdb -o %:r && gdb -tui %:r <CR>
 
+"TeX mappings
+autocmd filetype tex nnoremap <F5> :!pdflatex % <CR>
+
 "indentations and formatting
 set autoindent " auto indent
 set cindent " auto indent in c
@@ -30,4 +37,4 @@ retab " reformat all opened documents
 
 "syntax coloring
 syntax on
-"color dracula " dracula coloring
+color dracula " dracula coloring
