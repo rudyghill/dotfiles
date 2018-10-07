@@ -37,4 +37,4 @@ retab " reformat all opened documents
 
 "syntax coloring
 syntax on
-color dracula " dracula coloring
+"color dracula " dracula coloring
