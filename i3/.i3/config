@@ -8,7 +8,7 @@ set $web firefox
 set $file ranger
 
 # Font for window titles
-font xft:Mono 13
+font pango:mono 13
 
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
@@ -87,7 +87,6 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
-
 # END WORKSPACES
 
 # WINDOWS
@@ -116,7 +115,6 @@ set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 bindsym $mod+Shift+g mode "$mode_gaps"
-
 mode "$mode_gaps" {
         bindsym o      mode "$mode_gaps_outer"
         bindsym i      mode "$mode_gaps_inner"
@@ -148,6 +146,26 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
+# Resize window (you can also use the mouse for that)
+bindsym $mod+r mode "resize"
+mode "resize" {
+        # vim keys
+        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym j resize grow height 5 px or 5 ppt
+        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym l resize grow width 5 px or 5 ppt
+
+        # arrow keys
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
+
+        # exit resize mode: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
 # END WINDOWS
 
 # LETTER KEYBINDINGS
@@ -160,11 +178,13 @@ bindsym $mod+Shift+q kill
 bindsym $mod+w exec $web duckduckgo.com
 bindsym $mod+Shift+w layout tabbed
 
-# E: tiling layout / none
-bindsym $mod+e layout toggle split
+# E: none / none
 
 # R: resize / restart i3
 bindsym $mod+Shift+r restart
+
+# T: tiling layout / none
+bindsym $mod+t layout toggle split
 
 # Y: simple borders / none 
 bindsym $mod+y border pixel 3
@@ -179,9 +199,8 @@ bindsym $mod+a focus parent
 bindsym $mod+s exec bash ~/Website/rodapa/session.sh
 bindsym $mod+Shift+s sticky toggle
 
-# D: floating toggle / dunst
+# D: floating toggle / none
 bindsym $mod+d focus mode_toggle
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
 
 # F: file browser / fullscreen
 bindsym $mod+f exec $term -n file -e $file
@@ -208,17 +227,15 @@ bindsym $mod+l focus right
 bindsym $mod+Shift+l move right
 
 # ;: none / none
-bindsym $mod+semicolon exec $term; notify-send 'recording'
+# bindsym $mod+semicolon exec $term; notify-send 'recording'
 
 # X system menu / none
 bindsym $mod+x exec bash /home/rudy/.i3/system.sh
 
-# Z: morc menu / none
-bindsym $mod+z exec --no-startup-id morc_menu
+# Z: none / none
 
 # C: calculator / reload config
 bindsym $mod+c exec $term -n calc -e octave --no-gui --quiet
-# bindsym $mod+c exec $term -n calc -e R -q --no-save
 bindsym $mod+Shift+c reload
 
 # V: tile vertically / tile horizontally
@@ -229,8 +246,9 @@ bindsym $mod+Shift+v split h;exec notify-send 'tile horizontally'
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
-# N: normal border / none
+# N: normal border / dunst
 bindsym $mod+n border normal
+bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart dunst'"
 
 # M: music / toggle bar
 bindsym $mod+m exec $term -e 'mocp'
@@ -240,12 +258,10 @@ bindsym $mod+Shift+m bar mode toggle
 
 # Start Applications
 bindsym $mod+Ctrl+b exec $term -e 'bmenu'
-bindsym $mod+F5 exec $term -e 'mocp'
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -253,13 +269,11 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
-
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -288,38 +302,17 @@ for_window [urgent=latest] focus
 bindsym $mod+0 exec bash /home/rudy/.i3/system.sh
 bindsym $mod+Shift+0 exec bash /home/rudy/.i3/display.sh
 
-# Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
-mode "resize" {
-        # vim keys
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
-
-        # arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
-
-        # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
-# exec --no-startup-id blueman-applet
+# exec --no-startup-id clipit
+exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-# exec --no-startup-id xautolock -time 20 -locker i3lock
+exec --no-startup-id xautolock -time 20 -locker i3lock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
@@ -332,10 +325,10 @@ bar {
 
 	bindsym button4 nop
 	bindsym button5 nop
-	font xft:Mono 14
+	font pango:mono 14
 	strip_workspace_numbers yes
 
-    colors {
+  colors {
         background #000000
         statusline #EEE8D5
         separator  #EEE8D5
