@@ -7,38 +7,39 @@ set $term st
 set $web firefox
 set $file ranger
 
-# Font for window titles
-font pango:mono 13
-
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# start a terminal
+# Enter: terminal / none
 bindsym $mod+Return exec $term
 
+#
 # SOUND 
-# DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later!
+# 
 
 exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec $term -e 'alsamixer'
 # exec --no-startup-id pulseaudio
 # exec --no-startup-id pa-applet
 bindsym $mod+Ctrl+m exec pavucontrol
+#bindsym $mod+Ctrl+m exec $term -e 'alsamixer'
 
-# END SOUND 
-
+#
 # DISPLAY
+#
 
+# font for window titles
+font pango:mono 13
+# resolution
 exec --no-startup-id xrandr --output HDMI2 --off --output HDMI1 --off --output DP1 --off --output eDP1 --primary --mode 1600x900 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 # background
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
-
+# brightness
 bindsym XF86MonBrightnessUp exec "xrandr --output eDP1 --brightness 0.9; notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "xrandr --output eDP1 --brightness 0.5; notify-send 'brightness down'"
 
-# END DISPLAY
-
+#
 # WORKSPACES
+#
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -54,51 +55,21 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 
-# switch to workspace
-bindsym $mod+1 workspace $ws1
-bindsym $mod+2 workspace $ws2
-bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace $ws4
-bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace $ws6
-bindsym $mod+7 workspace $ws7
-bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
-
-# Move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8
-bindsym $mod+Ctrl+9 move container to workspace $ws9
-
-# Move to workspace with focused container
-bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
-bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
-bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
-
-# END WORKSPACES
-
+#
 # WINDOWS
+#
 
 focus_follows_mouse no
+
+# switch to workspace with urgent window automatically
+for_window [urgent=latest] focus
 
 # Set inner/outer gaps
 smart_gaps on
 gaps inner 10
 gaps outer 5
 
-## Hide borders
+# Hide borders
 smart_borders on
 hide_edge_borders none
 
@@ -107,68 +78,111 @@ new_window pixel 3
 new_float pixel 5
 
 # gaps inner|outer current|all set|plus|minus <px>
-# gaps inner all set 10
-# gaps outer all plus 5
 
-# Press $mod+Shift+g to enter the gap mode. Choose o or i for modifying outer/inner gaps. Press one of + / - (in-/decrement for current workspace) or 0 (remove gaps for current workspace). If you also press Shift with these keys, the change will be global for all workspaces.
+# Gaps Mode
 set $mode_gaps Gaps: (o) outer, (i) inner
 set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
 set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
-bindsym $mod+Shift+g mode "$mode_gaps"
 mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym o      mode "$mode_gaps_outer"
+  bindsym i      mode "$mode_gaps_inner"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 5
-        bindsym minus gaps inner current minus 5
-        bindsym 0     gaps inner current set 0
+  bindsym plus  gaps inner current plus 5
+  bindsym minus gaps inner current minus 5
+  bindsym 0     gaps inner current set 0
 
-        bindsym Shift+plus  gaps inner all plus 5
-        bindsym Shift+minus gaps inner all minus 5
-        bindsym Shift+0     gaps inner all set 0
+  bindsym Shift+plus  gaps inner all plus 5
+  bindsym Shift+minus gaps inner all minus 5
+  bindsym Shift+0     gaps inner all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 5
-        bindsym minus gaps outer current minus 5
-        bindsym 0     gaps outer current set 0
+  bindsym plus  gaps outer current plus 5
+  bindsym minus gaps outer current minus 5
+  bindsym 0     gaps outer current set 0
 
-        bindsym Shift+plus  gaps outer all plus 5
-        bindsym Shift+minus gaps outer all minus 5
-        bindsym Shift+0     gaps outer all set 0
+  bindsym Shift+plus  gaps outer all plus 5
+  bindsym Shift+minus gaps outer all minus 5
+  bindsym Shift+0     gaps outer all set 0
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
-# Resize window (you can also use the mouse for that)
-bindsym $mod+r mode "resize"
+# Resize Mode (you can also use the mouse for that)
 mode "resize" {
-        # vim keys
-        bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
-
-        # arrow keys
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
-
-        # exit resize mode: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+  # vim keys
+  bindsym h resize shrink width 5 px or 5 ppt
+  bindsym j resize grow height 5 px or 5 ppt
+  bindsym k resize shrink height 5 px or 5 ppt
+  bindsym l resize grow width 5 px or 5 ppt
+  # arrow keys
+  bindsym Left resize shrink width 5 px or 5 ppt
+  bindsym Down resize grow height 5 px or 5 ppt
+  bindsym Up resize shrink height 5 px or 5 ppt
+  bindsym Right resize grow width 5 px or 5 ppt
+  # exit resize mode: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
 }
 
-# END WINDOWS
+#
+# KEYBINDINGS
+#
 
-# LETTER KEYBINDINGS
+# 1:
+bindsym $mod+1 workspace $ws1
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+
+# 2:
+bindsym $mod+2 workspace $ws2
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+
+# 3:
+bindsym $mod+3 workspace $ws3
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+
+# 4:
+bindsym $mod+4 workspace $ws4
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+
+# 5:
+bindsym $mod+5 workspace $ws5
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+
+# 6:
+bindsym $mod+6 workspace $ws6
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+
+# 7:
+bindsym $mod+7 workspace $ws7
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+
+# 8:
+bindsym $mod+8 workspace $ws8
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+
+# 9:
+bindsym $mod+9 workspace $ws9
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Ctrl+9 move container to workspace $ws9
+
+# 0: system / display
+bindsym $mod+0 exec bash /home/rudy/.i3/system.sh
+bindsym $mod+Shift+0 exec bash /home/rudy/.i3/display.sh
 
 # Q: split toggle / kill focused window
 bindsym $mod+q split toggle
@@ -180,7 +194,8 @@ bindsym $mod+Shift+w layout tabbed
 
 # E: none / none
 
-# R: resize / restart i3
+# R: resize mode / restart i3
+bindsym $mod+r mode "resize"
 bindsym $mod+Shift+r restart
 
 # T: tiling layout / none
@@ -190,7 +205,7 @@ bindsym $mod+t layout toggle split
 bindsym $mod+y border pixel 3
 
 # U: no border / none
-bindsym $mod+u border none
+# bindsym $mod+u border none
 
 # A: focus parent
 bindsym $mod+a focus parent
@@ -206,9 +221,8 @@ bindsym $mod+d focus mode_toggle
 bindsym $mod+f exec $term -n file -e $file
 bindsym $mod+Shift+f fullscreen toggle
 
-# G: none / none
-#bidsym $mod+g gaps outer all set 0
-#bindsym $mode+Shift+g gaps outer all set 
+# G: none / gaps mode
+bindsym $mod+Shift+g mode "$mode_gaps"
 
 # H: focus left / move left
 bindsym $mod+h focus left
@@ -226,11 +240,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+l focus right
 bindsym $mod+Shift+l move right
 
-# ;: none / none
-# bindsym $mod+semicolon exec $term; notify-send 'recording'
-
 # X system menu / none
 bindsym $mod+x exec bash /home/rudy/.i3/system.sh
+bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Z: none / none
 
@@ -245,6 +257,7 @@ bindsym $mod+Shift+v split h;exec notify-send 'tile horizontally'
 # B: back workspace / move container
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Ctrl+b exec $term -e 'bmenu'
 
 # N: normal border / dunst
 bindsym $mod+n border normal
@@ -254,53 +267,46 @@ bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart du
 bindsym $mod+m exec $term -e 'mocp'
 bindsym $mod+Shift+m bar mode toggle
 
-# END LETTER KEYBINDINGS
-
-# Start Applications
-bindsym $mod+Ctrl+b exec $term -e 'bmenu'
+# Print : Screenshots
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
-# alternatively, you can use the cursor keys:
+# Left Arrow
 bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
-
-# toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
-
-# change focus between tiling / floating windows
-bindsym $mod+space exec --no-startup-id dmenu_run -p run:
-
-#navigate workspaces next / previous
-bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
+# Down Arrow
+bindsym $mod+Down focus down
+bindsym $mod+Shift+Down move down
+
+# Up Arrow
+bindsym $mod+Up focus up
+bindsym $mod+Shift+Up move up
+
+# Right Arrow
+bindsym $mod+Right focus right
+bindsym $mod+Shift+Right move right
+bindsym $mod+Ctrl+Right workspace next
+
+# Space: dmenu / toggle floating
+bindsym $mod+space exec --no-startup-id dmenu_run -p run:
+bindsym $mod+Shift+space floating toggle
+
+# ;: none / none
+
+# Calculator Window
 for_window [instance="calc"] floating enable
 for_window [instance="calc"] resize set 600 500
 for_window [instance="calc"] border pixel 5
 for_window [instance="calc"] move position center
 
+# File manager Window
 for_window [instance="file"] floating enable
 for_window [instance="file"] resize set 1100 625
 for_window [instance="file"] border pixel 5
 for_window [instance="file"] move position center
-
-# switch to workspace with urgent window automatically
-for_window [urgent=latest] focus
-
-# Set shut down, restart and locking features
-bindsym $mod+0 exec bash /home/rudy/.i3/system.sh
-bindsym $mod+Shift+0 exec bash /home/rudy/.i3/display.sh
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -314,7 +320,9 @@ exec --no-startup-id xautolock -time 20 -locker i3lock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
-# Start i3bar to display a workspace bar (plus the system information i3status if available)
+#
+# BAR
+#
 bar {
 	i3bar_command i3bar
   status_command i3status
@@ -329,21 +337,22 @@ bar {
 	strip_workspace_numbers yes
 
   colors {
-        background #000000
-        statusline #EEE8D5
-        separator  #EEE8D5
+    background #000000
+    statusline #EEE8D5
+    separator  #EEE8D5
 
-#                          border  backgr. text
-        focused_workspace  #EEE8D5 #268BD2 #000000
-        active_workspace   #000000 #000000 #268BD2
-        inactive_workspace #000000 #000000 #268BD2
-        binding_mode       #000000 #D33682 #000000
-        urgent_workspace   #000000 #DC322F #000000
+    #                  border  backgr. text
+    focused_workspace  #EEE8D5 #268BD2 #000000
+    active_workspace   #000000 #000000 #268BD2
+    inactive_workspace #000000 #000000 #268BD2
+    binding_mode       #000000 #D33682 #000000
+    urgent_workspace   #000000 #DC322F #000000
     }
 }
 
-
+#
 # COLORS
+#
 
 set $color0  #000000
 set $color1  #DC3227
@@ -361,5 +370,3 @@ client.unfocused        $color0 $color0 $color4 $color0
 #client.urgent           #CB4B16 #FDF6E3 #1ABC9C #268BD2
 #client.placeholder      #000000 #0c0c0c #ffffff #000000 
 client.background       $color0
-
-# END COLORS
