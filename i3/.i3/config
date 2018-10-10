@@ -206,9 +206,11 @@ bindsym $mod+y border pixel 3
 
 # U: no border / none
 # bindsym $mod+u border none
+# bindsym $mod+Shift+u 
 
 # A: focus parent
 bindsym $mod+a focus parent
+# bindsym $mod+Shift+a
 
 # S: server terminal / sticky toggle
 bindsym $mod+s exec bash ~/Website/rodapa/session.sh
@@ -216,6 +218,7 @@ bindsym $mod+Shift+s sticky toggle
 
 # D: floating toggle / none
 bindsym $mod+d focus mode_toggle
+# bindsyme $mod+Shift+d
 
 # F: file browser / fullscreen
 bindsym $mod+f exec $term -n file -e $file
