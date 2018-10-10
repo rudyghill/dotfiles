@@ -1,21 +1,17 @@
 # Rudy Hill's i3 config
 # For complete refernce visit http://i3wm.org/docs/userguide.html 
 
+#====================
 # VARIABLES
+#====================
 set $mod Mod4
 set $term st
 set $web firefox
 set $file ranger
 
-# Use Mouse+$mod to drag floating windows
-floating_modifier $mod
-
-# Enter: terminal / none
-bindsym $mod+Return exec $term
-
-#
+#====================
 # SOUND 
-# 
+#====================
 
 exec --no-startup-id volumeicon
 # exec --no-startup-id pulseaudio
@@ -23,9 +19,9 @@ exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec pavucontrol
 #bindsym $mod+Ctrl+m exec $term -e 'alsamixer'
 
-#
+#====================
 # DISPLAY
-#
+#====================
 
 # font for window titles
 font pango:mono 13
@@ -37,9 +33,9 @@ exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 bindsym XF86MonBrightnessUp exec "xrandr --output eDP1 --brightness 0.9; notify-send 'brightness up'"
 bindsym XF86MonBrightnessDown exec "xrandr --output eDP1 --brightness 0.5; notify-send 'brightness down'"
 
-#
+#====================
 # WORKSPACES
-#
+#====================
 
 # workspace back and forth (with/without active container)
 workspace_auto_back_and_forth yes
@@ -55,11 +51,14 @@ set $ws7 7
 set $ws8 8
 set $ws9 9
 
-#
+#====================
 # WINDOWS
-#
+#====================
 
 focus_follows_mouse no
+
+# Use Mouse+$mod to drag floating windows
+floating_modifier $mod
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -131,9 +130,9 @@ mode "resize" {
   bindsym Escape mode "default"
 }
 
-#
+#====================
 # KEYBINDINGS
-#
+#====================
 
 # 1:
 bindsym $mod+1 workspace $ws1
@@ -193,6 +192,8 @@ bindsym $mod+w exec $web duckduckgo.com
 bindsym $mod+Shift+w layout tabbed
 
 # E: none / none
+# bindsym $mod+e
+# bindsym $mod+Shift+e
 
 # R: resize mode / restart i3
 bindsym $mod+r mode "resize"
@@ -200,6 +201,7 @@ bindsym $mod+Shift+r restart
 
 # T: tiling layout / none
 bindsym $mod+t layout toggle split
+# bindsym $mod+Shift+t
 
 # Y: simple borders / none 
 bindsym $mod+y border pixel 3
@@ -248,6 +250,8 @@ bindsym $mod+x exec bash /home/rudy/.i3/system.sh
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Z: none / none
+# bindsym $mod+z
+# bindsym $mod+Shift+z
 
 # C: calculator / reload config
 bindsym $mod+c exec $term -n calc -e octave --no-gui --quiet
@@ -269,6 +273,9 @@ bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart du
 # M: music / toggle bar
 bindsym $mod+m exec $term -e 'mocp'
 bindsym $mod+Shift+m bar mode toggle
+
+# Enter: terminal / none
+bindsym $mod+Return exec $term
 
 # Print : Screenshots
 bindsym Print exec --no-startup-id i3-scrot
@@ -323,9 +330,9 @@ exec --no-startup-id xautolock -time 20 -locker i3lock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
-#
+#====================
 # BAR
-#
+#====================
 bar {
 	i3bar_command i3bar
   status_command i3status
@@ -353,9 +360,9 @@ bar {
     }
 }
 
-#
+#====================
 # COLORS
-#
+#====================
 
 set $color0  #000000
 set $color1  #DC3227
