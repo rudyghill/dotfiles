@@ -29,6 +29,9 @@ autocmd filetype cpp nnoremap<F10> :!g++ % -ggdb -o %:r && gdb -tui %:r <CR>
 "TeX mappings
 autocmd filetype tex nnoremap <F5> :!pdflatex % <CR>
 
+"M(atlab) mappings
+autocmd filetype m nnoremap<F5> :!octave % <CR>
+
 "indentations and formatting
 set autoindent " auto indent
 set cindent " auto indent in c
