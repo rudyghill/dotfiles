@@ -326,7 +326,7 @@ exec --no-startup-id xfce4-power-manager
 # exec --no-startup-id clipit
 exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
-exec --no-startup-id xautolock -time 20 -locker i3lock
+exec --no-startup-id xautolock -time 20 -locker i3exit lock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
