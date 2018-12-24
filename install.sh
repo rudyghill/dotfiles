@@ -3,3 +3,4 @@ stow emacs -t ~
 stow i3 -t ~
 stow ranger -t ~/config/
 stow vim -t ~
+stow misc -t ~
