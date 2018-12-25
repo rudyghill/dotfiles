@@ -333,32 +333,14 @@ exec_always --no-startup-id fix_xcursor
 #====================
 # COLORS
 #====================
-# Set Xresources colors:
-set_from_resource $color0 color0  #000000
-set_from_resource $color1 color1  #DC3227
-set_from_resource $color2 color2  #859900
-set_from_resource $color3 color3  #B58900
-set_from_resource $color4 color4  #268BD2
-set_from_resource $color5 color5  #D33682
-set_from_resource $color6 color6  #2AA198
-set_from_resource $color7 color7  #EEE8D5
-set_from_resource $color8 color8  #000000
-set_from_resource $color9 color9  #000000
-set_from_resource $color10 color10 #000000
-set_from_resource $color11 color11 #000000
-set_from_resource $color12 color12 #000000
-set_from_resource $color13 color13 #000000
-set_from_resource $color14 color14 #000000
-set_from_resource $color15 color15 #000000
-
-#set $color0  #000000
-#set $color1  #DC3227
-#set $color2  #859900
-#set $color3  #B58900
-#set $color4  #268BD2
-#set $color5  #D33682
-#set $color6  #2AA198
-#set $color7  #EEE8D5
+set $color0  #000000
+set $color1  #DC3227
+set $color2  #859900
+set $color3  #B58900
+set $color4  #268BD2
+set $color5  #D33682
+set $color6  #2AA198
+set $color7  #EEE8D5
 
 #class                   border  backgr. text   indic.  
 client.focused          $color7 $color4 $color0 $color4
