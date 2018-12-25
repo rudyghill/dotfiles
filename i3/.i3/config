@@ -333,7 +333,7 @@ exec_always --no-startup-id fix_xcursor
 #====================
 # COLORS
 #====================
-set $color0  #282828
+set $color0  #1d2021
 set $color1  #cc241d
 set $color2  #98971a
 set $color3  #d79921
