@@ -333,14 +333,14 @@ exec_always --no-startup-id fix_xcursor
 #====================
 # COLORS
 #====================
-set $color0  #000000
-set $color1  #DC3227
-set $color2  #859900
-set $color3  #B58900
-set $color4  #268BD2
-set $color5  #D33682
-set $color6  #2AA198
-set $color7  #EEE8D5
+set $color0  #282828
+set $color1  #cc241d
+set $color2  #98971a
+set $color3  #d79921
+set $color4  #458588
+set $color5  #b16286
+set $color6  #689d6a
+set $color7  #ebdbb2
 
 #class                   border  backgr. text   indic.  
 client.focused          $color7 $color4 $color0 $color4
