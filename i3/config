@@ -24,14 +24,14 @@ bindsym $mod+Ctrl+m exec pavucontrol
 #====================
 
 # font for window titles
-font pango:mono 20
+font pango:mono 12
 # resolution
 exec --no-startup-id xrandr --output HDMI2 --off --output HDMI1 --off --output DP1 --off --output eDP1 --primary --mode 1600x900 --pos 0x0 --rotate normal --output VIRTUAL1 --off
 # background
 exec --no-startup-id nitrogen --restore; sleep 1; compton -b
 # brightness
-bindsym XF86MonBrightnessUp exec "xrandr --output eDP1 --brightness 0.9; notify-send 'brightness up'"
-bindsym XF86MonBrightnessDown exec "xrandr --output eDP1 --brightness 0.5; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec "xrandr --output eDP1 --brightness 0.9; notify-send 'brightness 90%'"
+bindsym XF86MonBrightnessDown exec "xrandr --output eDP1 --brightness 0.5; notify-send 'brightness 50%'"
 
 #====================
 # WORKSPACES
@@ -355,7 +355,7 @@ client.background       $color0
 #====================
 bar {
 	i3bar_command i3bar
-  status_command i3status
+  status_command i3blocks
 	position top
 
 	tray_output primary
@@ -379,4 +379,3 @@ bar {
     urgent_workspace   $color0 $color1 $color0
     }
 }
-
