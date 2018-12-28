@@ -180,8 +180,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # 0: system / display
-bindsym $mod+0 exec bash /home/rudy/.i3/system.sh
-bindsym $mod+Shift+0 exec bash /home/rudy/.i3/display.sh
+bindsym $mod+0 exec bash ~/.config/i3/system.sh
+bindsym $mod+Shift+0 exec bash ~/.config/i3/display.sh
 
 # Q: split toggle / kill focused window
 bindsym $mod+q split toggle
@@ -246,7 +246,7 @@ bindsym $mod+l focus right
 bindsym $mod+Shift+l move right
 
 # X system menu / none
-bindsym $mod+x exec bash /home/rudy/.i3/system.sh
+bindsym $mod+x exec bash ~/.config/i3/system.sh
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # Z: none / none

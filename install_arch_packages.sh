@@ -6,3 +6,4 @@ sudo pacman -S gcc \
        vim
        ranger
        dunst
+       pulsemixer

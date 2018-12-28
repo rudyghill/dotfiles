@@ -19,7 +19,7 @@ alias e="emacs -nw"
 #Neofetch
 alias n="clear && neofetch"
 #i3 config
-alias i3c="vim ~/.i3/config"
+alias i3c="vim ~/.config/i3/config"
 #brightness
 alias brightness="xrandr --output eDP1 --brightness"
 #git
