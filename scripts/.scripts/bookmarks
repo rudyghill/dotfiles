@@ -1,0 +1,4 @@
+#!/bin/sh
+chosen=$(cat ~/.bookmarks | dmenu -p "go:")
+[ "$chosen" != "" ] || exit
+$BROWSER $chosen
