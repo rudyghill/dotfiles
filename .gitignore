@@ -6,5 +6,6 @@ vim/.vim/*
 ranger/history
 ranger/tagged
 ranger/bookmarks
+ranger/commands_full.py
 
 README.org
