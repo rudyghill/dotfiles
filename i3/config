@@ -188,7 +188,7 @@ bindsym $mod+q split toggle
 bindsym $mod+Shift+q kill
 
 # W: web browser / tabbed layout
-bindsym $mod+w exec $web duckduckgo.com
+bindsym $mod+w exec bookmarks
 bindsym $mod+Shift+w layout tabbed
 
 # E: none / none
