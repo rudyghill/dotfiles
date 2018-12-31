@@ -3,8 +3,8 @@ emacs/.emacs.d/*
 
 vim/.vim/*
 
-ranger/ranger/history
-ranger/ranger/tagged
-ranger/ranger/bookmarks
+ranger/history
+ranger/tagged
+ranger/bookmarks
 
 README.org

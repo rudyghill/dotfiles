@@ -1,9 +1,8 @@
 #!/bin/bash
 
-sudo pacman -S gcc \
+sudo pacman -S vim \
        emacs
        stow
-       vim
        ranger
        dunst
-       pulsemixer
+       newsboat

@@ -1,7 +1,8 @@
+#!/bin/bash
 stow bash -t ~
 stow emacs -t ~
 stow i3 -t ~/.config/i3
-stow ranger -t ~/.config/
+stow ranger -t ~/.config/ranger
 stow vim -t ~
-stow home -t ~
+stow x -t ~
 stow scripts -t ~
