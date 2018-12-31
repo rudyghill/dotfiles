@@ -1,63 +1,43 @@
-- [Introduction](#org83c83a3)
-  - [Preface](#org3822a06)
-  - [Features](#orgd2036f8)
-- [Getting Started](#org4e058e8)
-  - [Dependencies](#org1dd3591)
-  - [Automatic Setup](#org29c1f19)
-  - [Manual Setup](#org2160568)
-
-
-
-<a id="org83c83a3"></a>
-
-# Introduction
-
-
-<a id="org3822a06"></a>
+# Rudy's GNU/Linux Dotfiles
 
 ## Preface
 
-When I first started putting my dotfiles on Github, I simply copied and pasted the content onto the browser. I say dofiles but it was really only my `.vimrc` at first, but when I started to use more configs, things got hairy quickly. What I did was dumb so this repository is hopefully a remedy to that.
+When I first started putting my dotfiles on Github, I simply copied and pasted the content onto the browser. I say dotfiles but it was really only my `.vimrc` at first, but when I started to use more configs, things got hairy quickly. What I did was dumb so this repository is hopefully a remedy to that.
 
-This repository is really meant for me but I'd be honored if someone used it for their own purposes, even if just to compare, which is what I usually do. I want to thank [smalleycreative](http://blog.smalleycreative.com/tutorials/using-git-and-github-to-manage-your-dotfiles/) for inspiration.
-
-
-<a id="orgd2036f8"></a>
+This repository is really meant for me but I'd be honored if someone used it for their own purposes, even if just to compare, which is what I usually do. I want to thank [Harry R. Schwartz](https://github.com/hrs) for inspiration to use `stow`.
 
 ## Features
 
--   easy installation with `stow`
+-   easy to read thanks to GNU `stow`
+-   easy installation script
 -   simple Emacs package management with `use-package`
 
 
-<a id="org4e058e8"></a>
-
-# Getting Started
-
-
-<a id="org1dd3591"></a>
+# Installation
 
 ## Dependencies
+Obviously, these are configuration files for existing programs.  For Arch users, download the programs which are configured here with this script:
 
-To use my dotfiles, GNU `stow` is a "dependency". You can choose not to use it, but it makes the process much easier.
+```sh
+./install_arch_packages
+```
 
+Note that there may be packages that appear that I haven't put up configs for yet.  Included in the install is `stow`. If you do not want to install all the packages or if you are on a distro other than Arch, you could always examine the source and choose which ones you want.
 
-<a id="org29c1f19"></a>
 
 ## Automatic Setup
 
 To install all configs, run:
 
 ```sh
-./install.sh
+./install
 ```
 
+Note that you must have `stow` installed to create symlinks to the appropriate.  You will get errors if the appropriate directories do not exist or if the configs conflict with existing configs.
 
-<a id="org2160568"></a>
+## Semi-Manual Setup
 
-## Manual Setup
-
-If you want to install packages seperately, use `stow`. To put the vim files in your home directory, for example, change directories into this repository and run
+If you want to install packages separately, use `stow`. To put the vim files in your home directory, for example, change directories into this repository and run
 
 ```sh
 stow vim -t ~
@@ -68,3 +48,7 @@ For more information on `stow` run:
 ```sh
 man stow
 ```
+
+## Manual Setup
+
+First examine `install` to see where each folder is placed.  Then you can copy files to the appropriate directory.
