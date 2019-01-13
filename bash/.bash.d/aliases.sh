@@ -8,7 +8,7 @@ alias v="vim"
 #ranger
 alias f="ranger"
 #pacman
-alias pi="sudo pacman"
+alias pm="sudo pacman"
 #GNU Octave
 alias o="octave --no-gui --quiet"
 #Neofetch

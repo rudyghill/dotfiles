@@ -13,11 +13,13 @@ set $file ranger
 # SOUND 
 #====================
 
-exec --no-startup-id volumeicon
 # exec --no-startup-id pulseaudio
-# exec --no-startup-id pa-applet
-bindsym $mod+Ctrl+m exec pavucontrol
-#bindsym $mod+Ctrl+m exec $term -e 'alsamixer'
+exec --no-startup-id pa-applet
+exec --no-startup-id mpd
+bindsym XF86AudioNext		exec --no-startup-id mpc next
+bindsym XF86AudioPlay		exec --no-startup-id mpc toggle
+bindsym XF86AudioPrev		exec --no-startup-id mpc prev
+bindsym XF86AudioStop		exec --no-startup-id mpc toggle
 
 #====================
 # DISPLAY
@@ -181,7 +183,7 @@ bindsym $mod+Ctrl+9 move container to workspace $ws9
 
 # 0: system / display
 bindsym $mod+0 exec bash ~/.config/i3/system.sh
-bindsym $mod+Shift+0 exec bash ~/.config/i3/display.sh
+bindsym $mod+Shift+0 exec dmenudisplay
 
 # Q: split toggle / kill focused window
 bindsym $mod+q split toggle
@@ -203,8 +205,8 @@ bindsym $mod+Shift+r restart
 bindsym $mod+t layout toggle split
 # bindsym $mod+Shift+t
 
-# Y: simple borders / none 
-bindsym $mod+y border pixel 3
+# Y: none / none 
+# bindsym $mod+y border pixel 3
 
 # U: border none / none
 bindsym $mod+u exec dmenuunicode
@@ -247,7 +249,7 @@ bindsym $mod+Shift+l move right
 
 # X system menu / none
 bindsym $mod+x exec bash ~/.config/i3/system.sh
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+# bindsym $mod+Shift+x
 
 # Z: none / none
 # bindsym $mod+z
@@ -261,18 +263,16 @@ bindsym $mod+Shift+c reload
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+Shift+v split h;exec notify-send 'tile horizontally'
 
-# B: back workspace / move container
-bindsym $mod+b workspace back_and_forth
-bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
-bindsym $mod+Ctrl+b exec $term -e 'bmenu'
+# B: toggle bar / bmenu
+bindsym $mod+b bar mode toggle
+bindsym $mod+Shift+b exec $term -e 'bmenu'
 
-# N: normal border / dunst
-bindsym $mod+n border normal
+# N: none / dunst
 bindsym $mod+Shift+n --release exec "killall dunst; exec notify-send 'restart dunst'"
 
-# M: music / toggle bar
-bindsym $mod+m exec $term -e 'mocp'
-bindsym $mod+Shift+m bar mode toggle
+# M: music / pavucontrol
+bindsym $mod+m exec $term -e 'ncmpcpp'
+bindsym $mod+Shift+m exec pavucontrol
 
 # Enter: terminal / none
 bindsym $mod+Return exec $term
@@ -321,14 +321,8 @@ for_window [instance="file"] move position center
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec --no-startup-id nm-applet
-exec --no-startup-id xfce4-power-manager
-# exec --no-startup-id pamac-tray
 # exec --no-startup-id clipit
 # exec --no-startup-id blueman-applet
-# exec_always --no-startup-id sbxkb
-exec --no-startup-id xautolock -time 20 -locker i3exit lock
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
 
 #====================
 # COLORS
