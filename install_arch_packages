@@ -1,8 +1,16 @@
 #!/bin/bash
 
-sudo pacman -S vim \
-       emacs
-       stow
-       ranger
-       dunst
-       newsboat
+sudo pacman -S xorg \
+       stow \
+       vim \
+       emacs \
+       git \
+       ranger \
+       dunst \
+       newsboat \
+       lxappearance \
+       arandr \
+       sxiv \
+       feh \
+       firefox \
+       compton 

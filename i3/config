@@ -252,8 +252,8 @@ bindsym $mod+x exec bash ~/.config/i3/system.sh
 # bindsym $mod+Shift+x
 
 # Z: none / none
-# bindsym $mod+z
-# bindsym $mod+Shift+z
+bindsym $mod+z exec dmenurecord
+bindsym $mod+Shift+z exec killrecording
 
 # C: calculator / reload config
 bindsym $mod+c exec $term -n calc -e octave --no-gui --quiet

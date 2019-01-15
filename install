@@ -6,3 +6,4 @@ stow ranger -t ~/.config/ranger
 stow vim -t ~
 stow x -t ~
 stow scripts -t ~
+stow fontconfig -t ~/.config/fontconfig
