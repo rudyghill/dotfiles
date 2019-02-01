@@ -1,4 +1,5 @@
 #!/bin/sh
-chosen=$(cat ~/.bookmarks | dmenu -p "go:")
-[ "$chosen" != "" ] || exit
-$BROWSER $chosen
+name=$(awk '{print $1}' ~/.bookmarks | dmenu -i -p "go:")
+[ "$name" != "" ] || exit
+url=$(grep "$name" ~/.bookmarks | awk '{print $2}')
+$BROWSER $url

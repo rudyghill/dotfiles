@@ -3,5 +3,5 @@
 # $BROWSER. This script is alternative to copyurl st patch.
 
 regex='(((http|https|ftp|gopher)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]'
-url=$(grep -Po "$regex" | dmenu -p "Go:") || exit
+url=$(grep -Po "$regex" | dmenu -p "Go:" -l 5) || exit
 $BROWSER "$url"

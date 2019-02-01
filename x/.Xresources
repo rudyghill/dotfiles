@@ -19,3 +19,9 @@
 *.alpha: 230
 !! Set a default font and font size as below:
 !! *.font: Monospace-14;
+dwm.normbordercolor: #444444
+dwm.normbgcolor: #222222
+dwm.normfgcolor: #bbbbbb
+dwm.selbordercolor: #83a598
+dwm.selbgcolor: #83a598
+dwm.selfgcolor: #eeeeee
