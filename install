@@ -1,4 +1,8 @@
 #!/bin/bash
+mkdir -p ~/.config/ranger
+mkdir -p ~/.config/fontconfig
+mkdir -p ~/.config/dunst
+
 stow bash -t ~
 stow emacs -t ~
 stow i3 -t ~/.config/i3

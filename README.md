@@ -16,7 +16,8 @@ This repository is really meant for me but I'd be honored if someone used it for
 # Installation
 
 ## Dependencies
-Obviously, these are configuration files for existing programs.  For Arch users, download the programs which are configured here with this script:
+~~+Obviously, these are configuration files for existing programs.  For Arch users, download the programs which are configured here with this script:~~
+See RAPS.
 
 ```sh
 ./install_arch_packages

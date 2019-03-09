@@ -1,3 +1,7 @@
+call plug#begin('~/.vim/plugged')
+Plug 'https://github.com/sickill/vim-monokai'
+call plug#end()
+
 "Basics
 set nocompatible
 
@@ -32,11 +36,15 @@ autocmd filetype tex nnoremap <F5> :!pdflatex % <CR>
 "M(atlab) mappings
 autocmd filetype m nnoremap<F5> :!octave % <CR>
 
+"Py(thon) mappings
+autocmd filetype python nnoremap<F5> :!python2.7 % <CR>
+
 "indentations and formatting
 set autoindent " auto indent
 set cindent " auto indent in c
-set expandtab tabstop=2 shiftwidth=2 " set tabs to 2 spaces
+set tabstop=2 shiftwidth=2 " set tabs to 2 spaces
 retab " reformat all opened documents
 
 "syntax coloring
 syntax on
+color monokai
