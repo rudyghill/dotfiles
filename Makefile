@@ -22,7 +22,7 @@ dunst:
 	cp dunst/dunstrc ${DUNSTDIR}
 emacs: 
 	mkdir -p ${EMACSDIR}
-	cp -r emacs/.emacs/ ${EMACSDIR}
+	cp -r emacs/.emacs.d/ ${EMACSDIR}
 fonts:
 	mkdir -p ${FONTSDIR}
 	cp fontconfig/fonts.conf ${FONTSDIR}
