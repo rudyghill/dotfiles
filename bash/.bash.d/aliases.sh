@@ -1,6 +1,6 @@
 # User specific aliases and functions
 alias mail="offlineimap -a Gmail && neomutt"
-alias ls="ls --color=always"
+alias ls="ls --color=auto"
 #editor/vim
 alias e=$EDITOR
 alias sv="sudo vim"
