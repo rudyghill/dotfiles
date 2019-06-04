@@ -1,5 +1,5 @@
 call plug#begin('~/.vim/plugged')
-Plug 'https://github.com/sickill/vim-monokai'
+Plug 'morhetz/gruvbox'
 call plug#end()
 
 "Basics
@@ -47,4 +47,5 @@ retab " reformat all opened documents
 
 "syntax coloring
 syntax on
-color monokai
+set background=dark
+color gruvbox
