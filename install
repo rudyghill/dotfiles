@@ -3,6 +3,7 @@ mkdir -p ~/.config/ranger
 mkdir -p ~/.config/fontconfig
 mkdir -p ~/.config/dunst
 mkdir -p ~/.config/i3
+mkdir -p ~/.config/sxhkd
 
 stow bash -t ~
 stow dunst -t ~/.config/dunst
@@ -11,5 +12,6 @@ stow fontconfig -t ~/.config/fontconfig
 stow i3 -t ~/.config/i3
 stow ranger -t ~/.config/ranger
 stow scripts -t ~
+stow sxhkd -t ~/.config/sxhkd
 stow vim -t ~
 stow x -t ~
