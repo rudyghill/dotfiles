@@ -1,5 +1,6 @@
 call plug#begin('~/.vim/plugged')
 Plug 'morhetz/gruvbox'
+Plug 'dylanaraps/wal.vim'
 call plug#end()
 
 "Basics
@@ -47,5 +48,5 @@ retab " reformat all opened documents
 
 "syntax coloring
 syntax on
-set background=dark
-color gruvbox
+"set background=dark
+color wal

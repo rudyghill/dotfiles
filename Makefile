@@ -1,4 +1,4 @@
-HOMEDIR = /home/rudy
+HOMEDIR = ~
 BASHDIR = ${HOMEDIR}
 DUNSTDIR = ${HOMEDIR}/.config/dunst
 EMACSDIR = ${HOMEDIR}
@@ -12,38 +12,29 @@ XDIR = ${HOMEDIR}
 all: bash dunst emacs fonts i3 ranger scripts vim x
 bash:
 	mkdir -p ${BASHDIR}
-	cp -r bash/.bash.d/ ${BASHDIR}
-	cp bash/.bash_logout ${BASHDIR}
-	cp bash/.bash_profile ${BASHDIR}
-	cp bash/.bashrc ${BASHDIR}
-	cp bash/.profile ${BASHDIR}
+	cp -r bash/. ${BASHDIR}/
 dunst:
 	mkdir -p ${DUNSTDIR}
-	cp dunst/dunstrc ${DUNSTDIR}
+	cp -r dunst/. ${DUNSTDIR}/
 emacs: 
 	mkdir -p ${EMACSDIR}
-	cp -r emacs/.emacs.d/ ${EMACSDIR}
+	cp -r emacs/. ${EMACSDIR}/
 fonts:
 	mkdir -p ${FONTSDIR}
-	cp fontconfig/fonts.conf ${FONTSDIR}
+	cp -r fontconfig/. ${FONTSDIR}/
 i3:
 	mkdir -p ${I3DIR}
-	cp i3/config ${I3DIR}
-	cp i3/system.sh ${I3DIR}
+	cp -r i3/. ${I3DIR}/
 ranger:
 	mkdir -p ${RANGERDIR}
-	cp ranger/commands.py ${RANGERDIR}
-	cp ranger/rc.conf ${RANGERDIR}
-	cp ranger/rifle.conf ${RANGERDIR}
-	cp ranger/scope.sh ${RANGERDIR}
+	cp -r ranger/. ${RANGERDIR}/
 scripts:
 	mkdir -p ${SCRIPTSDIR}
-	cp -r scripts/.scripts/ ${SCRIPTSDIR}
-	cp scripts/.emoji ${SCRIPTSDIR}
+	cp -r scripts/. ${SCRIPTSDIR}/
 vim:
 	mkdir -p ${VIMDIR}
-	cp vim/.vimrc ${VIMDIR}
+	cp -r vim/. ${VIMDIR}/
 x:
 	mkdir -p ${XDIR}
-	cp x/.Xresources  ${XDIR}
+	cp -r x/. ${XDIR}/
 .PHONY: all bash dunst emacs fonts i3 ranger scripts vim x

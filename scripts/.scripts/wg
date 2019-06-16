@@ -1,0 +1,3 @@
+#!/bin/sh
+convert $1 ~/.config/wall.png
+xwallpaper --zoom ~/.config/wall.png
