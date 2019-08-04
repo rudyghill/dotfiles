@@ -20,6 +20,11 @@
 (when window-system
   (scroll-bar-mode -1))
 
+(custom-set-variables
+  '(gdb-many-windows t)
+  '(inhibit-startup-screen t)
+)
+
 ;; Elpa and Melpa
 (require 'package)
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
@@ -40,10 +45,10 @@
   (evil-mode 1))
 
 ;; Monokai Theme
-(use-package monokai-theme
-  :ensure t
-  :config
-  (load-theme 'monokai t))
+;;(use-package monokai-theme
+ ;; :ensure t
+  ;;:config
+  ;;(load-theme 'monokai t))
 
 ;; Twitter Bootstrap
 (use-package ox-twbs

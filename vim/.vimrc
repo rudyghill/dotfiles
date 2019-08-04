@@ -1,6 +1,6 @@
 call plug#begin('~/.vim/plugged')
-Plug 'morhetz/gruvbox'
 Plug 'dylanaraps/wal.vim'
+Plug 'vim-airline/vim-airline'
 call plug#end()
 
 "Basics
