@@ -6,10 +6,11 @@ FONTSDIR = ${HOMEDIR}/.config/fontconfig
 I3DIR = ${HOMEDIR}/.config/i3
 RANGERDIR = ${HOMEDIR}/.config/ranger
 SCRIPTSDIR = ${HOMEDIR}
+SXHKDDIR = ${HOMEDIR}/.config/sxhkd
 VIMDIR = ${HOMEDIR}
 XDIR = ${HOMEDIR}
 
-all: bash dunst emacs fonts i3 ranger scripts vim x
+all: bash dunst emacs fonts i3 ranger scripts sxhkd vim x
 bash:
 	mkdir -p ${BASHDIR}
 	cp -r bash/. ${BASHDIR}/
@@ -31,6 +32,9 @@ ranger:
 scripts:
 	mkdir -p ${SCRIPTSDIR}
 	cp -r scripts/. ${SCRIPTSDIR}/
+sxhkd:
+	mkdir -p ${SXHKDDIR}
+	cp -r scripts/. ${SXHKDDIR}/
 vim:
 	mkdir -p ${VIMDIR}
 	cp -r vim/. ${VIMDIR}/
