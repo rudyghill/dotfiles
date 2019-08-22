@@ -4,12 +4,16 @@ mkdir -p ~/.config/fontconfig
 mkdir -p ~/.config/dunst
 mkdir -p ~/.config/i3
 mkdir -p ~/.config/sxhkd
+mkdir -p ~/.config/mpd
+mkdir -p ~/.config/ncmpcpp
 
 stow bash -t ~
 stow dunst -t ~/.config/dunst
 stow emacs -t ~
 stow fontconfig -t ~/.config/fontconfig
 stow i3 -t ~/.config/i3
+stow mpd -t ~/.config/mpd
+stow ncmpcpp -t ~/.config/ncmpcpp
 stow ranger -t ~/.config/ranger
 stow scripts -t ~
 stow sxhkd -t ~/.config/sxhkd

@@ -4,3 +4,9 @@ XF86AudioRaiseVolume
 	pactl set-sink-mute 0 false ; pactl set-sink-volume 0 +5%; refbar
 XF86AudioMute
 	pactl set-sink-mute 0 toggle; refbar
+XF86AudioPlay
+	mpc -q toggle
+XF86AudioPause
+	mpc -q toggle
+XF86Audio{Prev,Next}
+	mpc -q {prev,next}
