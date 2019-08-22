@@ -34,7 +34,7 @@ scripts:
 	cp -r scripts/. ${SCRIPTSDIR}/
 sxhkd:
 	mkdir -p ${SXHKDDIR}
-	cp -r scripts/. ${SXHKDDIR}/
+	cp -r sxhkd/. ${SXHKDDIR}/
 vim:
 	mkdir -p ${VIMDIR}
 	cp -r vim/. ${VIMDIR}/
@@ -43,4 +43,4 @@ vim:
 x:
 	mkdir -p ${XDIR}
 	cp -r x/. ${XDIR}/
-.PHONY: all bash dunst emacs fonts i3 ranger scripts vim x
+.PHONY: all bash dunst emacs fonts i3 ranger scripts sxhkd vim x
