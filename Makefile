@@ -4,13 +4,15 @@ DUNSTDIR = ${HOMEDIR}/.config/dunst
 EMACSDIR = ${HOMEDIR}
 FONTSDIR = ${HOMEDIR}/.config/fontconfig
 I3DIR = ${HOMEDIR}/.config/i3
+MPDDIR = ${HOMEDIR}/.config/mpd
+NCMPCPPDIR = ${HOMEDIR}/.config/ncmpcpp
 RANGERDIR = ${HOMEDIR}/.config/ranger
 SCRIPTSDIR = ${HOMEDIR}
 SXHKDDIR = ${HOMEDIR}/.config/sxhkd
 VIMDIR = ${HOMEDIR}
 XDIR = ${HOMEDIR}
 
-all: bash dunst emacs fonts i3 ranger scripts sxhkd vim x
+all: bash dunst emacs fonts i3 mpd ncmpcpp ranger scripts sxhkd vim x
 bash:
 	mkdir -p ${BASHDIR}
 	cp -r bash/. ${BASHDIR}/
@@ -26,6 +28,12 @@ fonts:
 i3:
 	mkdir -p ${I3DIR}
 	cp -r i3/. ${I3DIR}/
+mpd:
+	mkdir -p ${MPDDIR}
+	cp -r mpd/. ${MPDDIR}
+ncmpcpp:
+	mkdir -p ${NCMPCPPDIR}
+	cp -r ncmpcpp/. ${NCMPCPPDIR}
 ranger:
 	mkdir -p ${RANGERDIR}
 	cp -r ranger/. ${RANGERDIR}/
@@ -43,4 +51,4 @@ vim:
 x:
 	mkdir -p ${XDIR}
 	cp -r x/. ${XDIR}/
-.PHONY: all bash dunst emacs fonts i3 ranger scripts sxhkd vim x
+.PHONY: all bash dunst emacs fonts i3 mpd ncmpcpp ranger scripts sxhkd vim x
