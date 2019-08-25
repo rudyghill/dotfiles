@@ -6,3 +6,5 @@ source ~/.bash.d/prompt.sh
 
 # Aliases
 source ~/.bash.d/aliases.sh
+# Vi mode
+set -o vi
