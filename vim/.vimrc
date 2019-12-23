@@ -47,7 +47,7 @@ set tabstop=2 shiftwidth=2 " set tabs to 2 spaces
 retab " reformat all opened documents
 
 "SXHKD
-autocmd BufWritePost *sxhkdrc !pkil -USR1 sxhkd
+autocmd BufWritePost *sxhkdrc !pkill -USR1 sxhkd
 
 "syntax coloring
 syntax on

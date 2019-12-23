@@ -10,3 +10,13 @@ XF86AudioPause
 	mpc -q toggle
 XF86Audio{Prev,Next}
 	mpc -q {prev,next}
+Print
+	scrot 'Screenshot_%Y%m%d_%H%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'
+@shift + Print
+	scrot -s 'Screenshot_%Y%m%d_%H%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'
+control + Print
+	scrot -u 'Screenshot_%Y%m%d_%H%M%S_$wx$h.png' -e 'mv $f ~/Pictures/screenshots/'
+super + Print
+	dmenurecord
+super + Delete
+	dmenurecord kill

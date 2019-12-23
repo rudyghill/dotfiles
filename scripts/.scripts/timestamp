@@ -1,0 +1,10 @@
+#!/bin/bash
+for i in "$@"
+do
+	fullfile=$i
+	filename=$(basename -- "$fullfile")
+	extension="${filename##*.}"
+	filename="${filename%.*}"
+	newname=$(date --date="$(stat -c '%w' $fullfile)" +"%Y%m%d_%H%M%S")
+	mv --no-clobber $fullfile "$newname"."$extension"
+done
